@@ -29,6 +29,8 @@ function Home() {
         window.location.href = "https://cors-anywhere.herokuapp.com"
       }
   }, []);
+
+  
   return (
     <App>
       {loading ? 

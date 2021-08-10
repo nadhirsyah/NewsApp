@@ -2,7 +2,7 @@ import styled, {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800;900&family=Rubik:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
 *{
     margin: 0;
@@ -22,7 +22,7 @@ html {
     }
 }
 body{
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     font-size: 1.6rem;

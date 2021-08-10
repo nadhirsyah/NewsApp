@@ -16,13 +16,18 @@ function Home() {
   let history = useHistory();
   useEffect(() => {
     setLoading(true)
-    axios.get('https://today.line.me/id/portaljson')
-        .then(response => {
-          const data = response.data.result
-          setCategoryList(data.categoryList);
-          setNewsCategoryList(data.categories);
-          setTimeout(() => setLoading(false), 250)
-        })
+    try{
+      axios.get('https://cors-anywhere.herokuapp.com/today.line.me/id/portaljson')
+          .then(response => {
+            const data = response.data.result
+            setCategoryList(data.categoryList);
+            setNewsCategoryList(data.categories);
+            setTimeout(() => setLoading(false), 250)
+          })
+      } catch(err){
+        alert("terjadi error, silahkan berikan akses untuk cors anywhere dan setelah itu akses website ini kembali")
+        window.location.href = "https://cors-anywhere.herokuapp.com"
+      }
   }, []);
   return (
     <App>

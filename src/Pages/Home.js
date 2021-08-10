@@ -22,7 +22,6 @@ function Home() {
           setCategoryList(data.categoryList);
           setNewsCategoryList(data.categories);
           setTimeout(() => setLoading(false), 250)
-          
         })
   }, []);
   return (

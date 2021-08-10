@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Home from './Pages/Home';
+import Navbar from './Component/Navbar/Navbar';
+import GlobalStyles from './GlobalStyles';
+import { ArticleContext } from './Context/ArticleContext';
+import Bookmark from './Pages/Bookmark/Bookmark' 
 function App() {
+  const [myArticle, setMyArticle] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <GlobalStyles/>
+        <Switch>
+          <ArticleContext.Provider value={{ myArticle, setMyArticle}}>
+          <Navbar />
+          <Route exact path="/">
+            <Redirect to="/top" />
+          </Route>
+          <Route path="/:category">
+            <Home />
+          </Route>
+          <Route path="/bookmark">
+            <Bookmark />
+          </Route>
+          </ArticleContext.Provider>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
